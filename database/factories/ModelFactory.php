@@ -1,5 +1,6 @@
 <?php
 
+use App\Bill;
 use App\Customer;
 
 /*
@@ -40,6 +41,16 @@ $factory->define(App\Bill::class, function (Faker\Generator $faker) {
     return [
     	'customer_id' => $faker->randomElement($customerIds->toArray()),
         'bill_number' => $faker->numberBetween($min = 1000, $max = 10000),
+        'amount' => $faker->numberBetween($min = 1, $max = 50000)
+    ];
+});
+
+$factory->define(App\Payment::class, function (Faker\Generator $faker) {
+	$customerIds = Customer::pluck('id');
+	$billIds = Bill::pluck('id');
+    return [
+    	'customer_id' => $faker->randomElement($customerIds->toArray()),
+    	'bill_id' => $faker->randomElement($billIds->toArray()),
         'amount' => $faker->numberBetween($min = 1, $max = 50000)
     ];
 });
