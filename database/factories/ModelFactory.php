@@ -49,7 +49,6 @@ $factory->define(App\Payment::class, function (Faker\Generator $faker) {
 	$customerIds = Customer::pluck('id');
 	$billIds = Bill::pluck('id');
     return [
-    	'customer_id' => $faker->randomElement($customerIds->toArray()),
     	'bill_id' => $faker->randomElement($billIds->toArray()),
         'amount' => $faker->numberBetween($min = 1000, $max = 25000)
     ];
