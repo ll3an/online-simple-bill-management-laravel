@@ -1,5 +1,7 @@
 <?php
 
+use App\Customer;
+
 /*
 |--------------------------------------------------------------------------
 | Model Factories
@@ -30,5 +32,14 @@ $factory->define(App\Customer::class, function (Faker\Generator $faker) {
         'phone' => $faker->phoneNumber,
         'short_address' => $faker->streetAddress,
         'detail_address' => $faker->address
+    ];
+});
+
+$factory->define(App\Bill::class, function (Faker\Generator $faker) {
+	$customerIds = Customer::pluck('id');
+    return [
+    	'customer_id' => $faker->randomElement($customerIds->toArray()),
+        'bill_number' => $faker->numberBetween($min = 1000, $max = 10000),
+        'amount' => $faker->numberBetween($min = 1, $max = 50000)
     ];
 });
