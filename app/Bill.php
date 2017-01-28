@@ -2,10 +2,34 @@
 
 namespace App;
 
+use App\Payment;
 use Illuminate\Database\Eloquent\Model;
 
 class Bill extends Model
 {
+	/**
+	 * sums up all the paid amount for a specific bill
+	 * @return float total paid amount
+	 */
+	public function getTotalPaidAttribute()
+	{
+		$total = 0;
+		$payments = Payment::where('bill_id', $this->id)->get();
+		foreach ($payments as $payment) {
+			$total += $payment->amount;
+		}
+		return $total;
+	}
+
+	/**
+	 * subtracts total paid amount from Bill amount
+	 * @return float total due
+	 */
+	public function getTotalDueAttribute()
+	{
+		return $this->amount - $this->getTotalPaidAttribute();
+	}
+
     /**
      * A Bill belongs to a customer
      * @return belongsTo Customer
