@@ -13,7 +13,7 @@
                     	<div class="form-group">
 						    <label for="inputBillNumber" class="col-sm-3 control-label">Customer</label>
 						    <div class="col-sm-9">
-						    	<select name="customer_id" class="form-control">
+						    	<select class="selectpicker form-control" data-live-search="true" name="customer_id">
 						    		@foreach ($customers as $customer)
 						    			<option value="{{ $customer->id }}">{{ $customer->name }}</option>
 						    		@endforeach
