@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Bill extends Model
 {
+	protected $fillable = ['customer_id', 'bill_number', 'amount', 'created_at'];
 	/**
 	 * sums up all the paid amount for a specific bill
 	 * @return float total paid amount

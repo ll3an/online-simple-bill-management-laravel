@@ -19,3 +19,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 Route::get('/new-bill-form', 'HomeController@newBillForm');
+Route::post('/create-bill', 'HomeController@createBill');
