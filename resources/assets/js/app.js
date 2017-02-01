@@ -16,5 +16,18 @@ require('./bootstrap');
 Vue.component('example', require('./components/Example.vue'));
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    data: {
+    	total_amount : '',
+    	total_paid : '',
+    	customers : {
+    		{name : 'c1', value : 1},
+    		{name : 'c2', value : 2}
+    	}
+    },
+    computed:{
+    	total_due: function(){
+    		return this.total_amount - this.total_paid;
+    	}
+    }
 });
