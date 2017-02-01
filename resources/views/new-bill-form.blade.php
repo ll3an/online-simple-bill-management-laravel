@@ -51,7 +51,12 @@
 					    <div class="form-group">
 						    <label for="inputCurrentDate" class="col-sm-3 control-label">Date</label>
 						    <div class="col-sm-9">
-						    	<input disabled type="text" class="form-control" id="current_date" placeholder="Today's date" value="<?php echo date('Y-m-d H:i:s'); ?>">
+						    	<div class="input-group date" data-provide="datepicker" data-date-format="yyyy-mm-dd" data-date-autoclose="true">
+								    <input type="text" class="form-control" value="<?php echo date('Y-m-d'); ?>">
+								    <div class="input-group-addon">
+								        <span class="glyphicon glyphicon-th"></span>
+								    </div>
+								</div>
 						    </div>
 					    </div>
 

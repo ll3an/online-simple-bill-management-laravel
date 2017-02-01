@@ -6,7 +6,7 @@
  */
 
 require('./bootstrap');
-
+require("bootstrap-datepicker-webpack");
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -19,13 +19,9 @@ const app = new Vue({
     el: '#app',
     data: {
     	total_amount : '',
-    	total_paid : '',
-    	customers : {
-    		{name : 'c1', value : 1},
-    		{name : 'c2', value : 2}
-    	}
+    	total_paid : ''
     },
-    computed:{
+    computed: {
     	total_due: function(){
     		return this.total_amount - this.total_paid;
     	}
