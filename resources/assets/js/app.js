@@ -17,6 +17,11 @@ require('bootstrap-select');
 Vue.component('example', require('./components/Example.vue'));
 
 Vue.component(
+    'bill-list',
+    require('./components/Bills.vue')
+);
+
+Vue.component(
     'passport-clients',
     require('./components/passport/Clients.vue')
 );
